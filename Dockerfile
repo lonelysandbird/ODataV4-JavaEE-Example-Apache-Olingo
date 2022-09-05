@@ -43,18 +43,18 @@ MAINTAINER "Markus Eschenbach <mail@blogging-it.com>"
 # ************* MODIFY CONTAINER FILES *************
 
 # rename ROOT application folder to admin
-RUN mv /usr/local/tomee/webapps/ROOT /usr/local/tomee/webapps/admin
+# RUN mv /usr/local/tomee/webapps/ROOT /usr/local/tomee/webapps/admin
 
 # create new ROOT application folder and index.jsp welcome file
-RUN mkdir /usr/local/tomee/webapps/ROOT && echo "<html><head></head><body>It works!</body></html>" >> /usr/local/tomee/webapps/ROOT/index.jsp
+# RUN mkdir /usr/local/tomee/webapps/ROOT && echo "<html><head></head><body>It works!</body></html>" >> /usr/local/tomee/webapps/ROOT/index.jsp
 
 # add admin user tomee:tomee
-RUN sed -i '/<\/tomcat-users>/d' /usr/local/tomee/conf/tomcat-users.xml
-RUN echo "<role rolename=\"admin-gui\"/> \
-<role rolename=\"tomee-admin\"/> \
-<role rolename=\"manager-gui\"/> \
-<user username=\"tomee\" password=\"tomee\" roles=\"tomee-admin,manager-gui,admin-gui,manager-script\" /> \
-</tomcat-users>" >> /usr/local/tomee/conf/tomcat-users.xml
+# RUN sed -i '/<\/tomcat-users>/d' /usr/local/tomee/conf/tomcat-users.xml
+#RUN echo "<role rolename=\"admin-gui\"/> \
+#<role rolename=\"tomee-admin\"/> \
+#<role rolename=\"manager-gui\"/> \
+#<user username=\"tomee\" password=\"tomee\" roles=\"tomee-admin,manager-gui,admin-gui,manager-script\" /> \
+#</tomcat-users>" >> /usr/local/tomee/conf/tomcat-users.xml
 
 
 # **************** INSTALL TOOLS *****************
@@ -78,8 +78,8 @@ RUN apt-get update \
 
 # *************** ADD APPLICATIONS ***************
 
-ADD module-application/target/angular2-qickstart-javaee7-application.war /usr/local/tomee/webapps/angular2-qickstart-javaee7-application.war
-ADD module-client-web/target/angular2-qickstart-javaee7-client-web.war /usr/local/tomee/webapps/angular2-qickstart-javaee7-client-web.war
+#ADD module-application/target/angular2-qickstart-javaee7-application.war /usr/local/tomee/webapps/angular2-qickstart-javaee7-application.war
+#ADD module-client-web/target/angular2-qickstart-javaee7-client-web.war /usr/local/tomee/webapps/angular2-qickstart-javaee7-client-web.war
 
 
 # ******************** EXPOSE ********************
